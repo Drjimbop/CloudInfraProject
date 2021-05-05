@@ -1,0 +1,235 @@
+Hillj@Revan MINGW64 ~
+$ ssh azdmin@138.91.165.37
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1046-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr 21 21:47:33 UTC 2021
+
+  System load:  0.06              Processes:              111
+  Usage of /:   8.5% of 28.90GB   Users logged in:        0
+  Memory usage: 33%               IP address for eth0:    10.0.0.4
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+ * Pure upstream Kubernetes 1.21, smallest, simplest cluster ops!
+
+     https://microk8s.io/
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+1 package can be updated.
+0 of these updates are security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Tue Apr 20 22:52:34 2021 from 108.28.152.235
+azdmin@Jump-Box-Provisioner:~$ sudo docker attach trusting_bhabha
+root@3d03e4e5c2e5:/etc/ansible# nano pentest.yml
+root@3d03e4e5c2e5:/etc/ansible# nano pentest.yml
+root@3d03e4e5c2e5:/etc/ansible# nano hosts
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook pentest.yml
+
+PLAY [Config Web VM with Docker] ***************************************************************************************
+TASK [Gathering Facts] *************************************************************************************************ok: [10.0.0.7]
+
+TASK [Install docker.io] ***********************************************************************************************fatal: [10.0.0.7]: FAILED! => {"changed": false, "msg": "Failed to update apt cache: "}
+
+PLAY RECAP *************************************************************************************************************10.0.0.7                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# nano pentest.yml
+root@3d03e4e5c2e5:/etc/ansible# nano hosts
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook pentest.yml
+
+PLAY [Config Web VM with Docker] ***************************************************************************************
+TASK [Gathering Facts] *************************************************************************************************ok: [10.0.0.7]
+
+TASK [Install docker.io] ***********************************************************************************************fatal: [10.0.0.7]: FAILED! => {"changed": false, "msg": "No package matching 'docker.io' is available"}
+
+PLAY RECAP *************************************************************************************************************10.0.0.7                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# ls
+ansible.cfg  hosts  my_playbook  my_playbook.yml  pentest.yml  pentest2.yml  roles
+root@3d03e4e5c2e5:/etc/ansible# nano hosts
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook pentest.yml
+
+PLAY [Config Web VM with Docker] ***************************************************************************************
+TASK [Gathering Facts] *************************************************************************************************ok: [10.0.0.7]
+ok: [10.0.0.5]
+ok: [10.0.0.6]
+
+TASK [Install docker.io] ***********************************************************************************************fatal: [10.0.0.7]: FAILED! => {"changed": false, "msg": "No package matching 'docker.io' is available"}
+ok: [10.0.0.5]
+ok: [10.0.0.6]
+
+TASK [Install pip3] ****************************************************************************************************ok: [10.0.0.5]
+ok: [10.0.0.6]
+
+TASK [Install docker python module] ************************************************************************************ok: [10.0.0.5]
+ok: [10.0.0.6]
+
+TASK [download and launch docker web container] ************************************************************************ok: [10.0.0.5]
+ok: [10.0.0.6]
+
+TASK [Enable docker service] *******************************************************************************************ok: [10.0.0.5]
+ok: [10.0.0.6]
+
+PLAY RECAP *************************************************************************************************************10.0.0.5                   : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+10.0.0.6                   : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+10.0.0.7                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# cd .ssh
+bash: cd: .ssh: No such file or directory
+root@3d03e4e5c2e5:/etc/ansible# cd ./.ssh
+bash: cd: ./.ssh: No such file or directory
+root@3d03e4e5c2e5:/etc/ansible# cd ..
+root@3d03e4e5c2e5:/etc# cd ..
+root@3d03e4e5c2e5:/# cd .ssh
+bash: cd: .ssh: No such file or directory
+root@3d03e4e5c2e5:/# cd /.ssh
+bash: cd: /.ssh: No such file or directory
+root@3d03e4e5c2e5:/# ls
+bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+root@3d03e4e5c2e5:/# cd ./.ssh
+bash: cd: ./.ssh: No such file or directory
+root@3d03e4e5c2e5:/# exit
+exit
+azdmin@Jump-Box-Provisioner:~$ cd ..sh
+-bash: cd: ..sh: No such file or directory
+azdmin@Jump-Box-Provisioner:~$ cd .ssh
+azdmin@Jump-Box-Provisioner:~/.ssh$ ls
+authorized_keys
+azdmin@Jump-Box-Provisioner:~/.ssh$ sudo docker attach trusting_bhabha
+You cannot attach to a stopped container, start it first
+azdmin@Jump-Box-Provisioner:~/.ssh$ sudo docker start trusting_bhabha
+trusting_bhabha
+azdmin@Jump-Box-Provisioner:~/.ssh$ sudo docker attach trusting_bhabha
+root@3d03e4e5c2e5:~# cd .ssh
+root@3d03e4e5c2e5:~/.ssh# ls
+id_rsa  id_rsa.pub  known_hosts
+root@3d03e4e5c2e5:~/.ssh# exit
+exit
+azdmin@Jump-Box-Provisioner:~/.ssh$ sudo docker start trusting_bhabha
+trusting_bhabha
+azdmin@Jump-Box-Provisioner:~/.ssh$ sudo docker attach trusting_bhabha
+root@3d03e4e5c2e5:~# cd etc/ansible
+bash: cd: etc/ansible: No such file or directory
+root@3d03e4e5c2e5:~# cd .etc
+bash: cd: .etc: No such file or directory
+root@3d03e4e5c2e5:~# cd /etc
+root@3d03e4e5c2e5:/etc# cd /ansible
+bash: cd: /ansible: No such file or directory
+root@3d03e4e5c2e5:/etc# ls
+adduser.conf            deluser.conf  init.d         lsb-release    pam.d      rc5.d        subgid
+alternatives            dpkg          inputrc        machine-id     passwd     rc6.d        subuid
+ansible                 environment   issue          mailcap        profile    rcS.d        sysctl.conf
+apt                     fstab         issue.net      mailcap.order  profile.d  resolv.conf  sysctl.d
+bash.bashrc             gai.conf      kernel         mime.types     python     rmt          systemd
+bindresvport.blacklist  group         ld.so.cache    mke2fs.conf    python2.7  securetty    terminfo
+ca-certificates         group-        ld.so.conf     mtab           python3    security     update-motd.d
+ca-certificates.conf    gshadow       ld.so.conf.d   nanorc         python3.6  selinux      vim
+cron.daily              gshadow-      ldap           networks       rc0.d      shadow
+dbus-1                  gss           legal          nsswitch.conf  rc1.d      shells
+debconf.conf            host.conf     libaudit.conf  opt            rc2.d      skel
+debian_version          hostname      login.defs     os-release     rc3.d      ssh
+default                 hosts         logrotate.d    pam.conf       rc4.d      ssl
+root@3d03e4e5c2e5:/etc# cd ansible
+root@3d03e4e5c2e5:/etc/ansible# ls
+ansible.cfg  hosts  my_playbook  my_playbook.yml  pentest.yml  pentest2.yml  roles
+root@3d03e4e5c2e5:/etc/ansible# nano hosts
+root@3d03e4e5c2e5:/etc/ansible# ssh azdmin@10.1.0.4
+The authenticity of host '10.1.0.4 (10.1.0.4)' can't be established.
+ECDSA key fingerprint is SHA256:ijYM5qJY50lGhopA7gTRF+MbDOC75zUMq/6ohacU82o.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '10.1.0.4' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1046-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Apr 21 23:29:35 UTC 2021
+
+  System load:  0.05              Processes:           132
+  Usage of /:   4.5% of 28.90GB   Users logged in:     0
+  Memory usage: 2%                IP address for eth0: 10.1.0.4
+  Swap usage:   0%
+
+0 packages can be updated.
+0 of these updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+azdmin@Elk-VM:~$ exit
+logout
+Connection to 10.1.0.4 closed.
+root@3d03e4e5c2e5:/etc/ansible# ls
+ansible.cfg  hosts  my_playbook  my_playbook.yml  pentest.yml  pentest2.yml  roles
+root@3d03e4e5c2e5:/etc/ansible# nano hosts
+root@3d03e4e5c2e5:/etc/ansible# touch install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# exit
+Connection to 138.91.165.37 closed by remote host.
+Connection to 138.91.165.37 closed.
+
+
+
+
+---
+- name: Config ELK with Docker
+  hosts: elk
+  become: true
+  tasks:
+    - name: docker.io
+      apt:
+        force_apt_get: yes
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Install pip3
+      apt:
+        name: python3-pip
+        state: present
+
+    - name: Install Docker python module
+      pip:
+        name: docker
+        state: present
+
+    - name: download and launch a docker web container
+      docker_container:
+        name: sebp
+        image: sebp/elk:761
+        state: started
+        restart_policy: always
+        ports:
+          - "5601:5601"
+          - "9200:9200"
+          - "5044:5044"
+
+    - name: Enable docker service
+      systemd:
+        name: docker
+        enabled: yes
+
+    - name: set vm.max_map_count to 262144 in sysctl
+      sysctl: name={{ item.key }} value={{ item.value }}
+      with_items:
+       - { key: "vm.max_map_count", value: "262144" }

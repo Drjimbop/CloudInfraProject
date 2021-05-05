@@ -1,0 +1,670 @@
+
+In Jumpbox, run the ansible container 
+
+root@3d03e4e5c2e5:/etc/ansible# nano pentest.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook pentest.yml
+
+root@3d03e4e5c2e5:/etc/ansible# nano my_playbook.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook my_playbook.yml
+
+From Jumpbox, ssh into Web server
+
+
+root@3d03e4e5c2e5:/etc/ansible# ssh azdmin@10.0.0.5
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1043-azure x86_64)
+
+
+
+once logged into web server, curl php file
+
+*** System restart required ***
+Last login: Sat Apr 17 16:36:18 2021 from 10.0.0.4
+azdmin@Web-1:~$ curl localhost/setup.php
+
+
+
+azdmin@Web-1:~$ exit
+logout
+Connection to 10.0.0.5 closed.
+root@3d03e4e5c2e5:/etc/ansible# ansible all -m ping
+
+
+
+
+
+
+
+
+In ansible container
+
+root@3d03e4e5c2e5:~# cd /etc/ansible
+root@3d03e4e5c2e5:/etc/ansible# nano hosts
+root@3d03e4e5c2e5:/etc/ansible# ansible all -m ping
+10.0.0.7 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+10.0.0.6 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+10.0.0.5 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+
+
+
+
+
+
+Hillj@Revan MINGW64 ~
+$ ss azdmin@138.91.165.37
+bash: ss: command not found
+
+Hillj@Revan MINGW64 ~
+$ ssh azdmin@138.91.165.37
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1046-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Apr 22 23:13:12 UTC 2021
+
+  System load:  0.0               Processes:              112
+  Usage of /:   8.5% of 28.90GB   Users logged in:        0
+  Memory usage: 28%               IP address for eth0:    10.0.0.4
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+ * Pure upstream Kubernetes 1.21, smallest, simplest cluster ops!
+
+     https://microk8s.io/
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+2 packages can be updated.
+0 of these updates are security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Thu Apr 22 22:56:32 2021 from 108.28.152.235
+azdmin@Jump-Box-Provisioner:~$ sudo docker start trusting_bhabha
+trusting_bhabha
+azdmin@Jump-Box-Provisioner:~$ sudo docker attach trusting_bhabha
+
+
+
+
+
+
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook intsall_elk.yml
+ERROR! the playbook: intsall_elk.yml could not be found
+root@3d03e4e5c2e5:/etc/ansible# ls
+ansible.cfg  hosts  install-elk.yml  my_playbook  my_playbook.yml  pentest.yml  pentest2.yml  roles
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook intsall-elk.yml
+ERROR! the playbook: intsall-elk.yml could not be found
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+ERROR! Syntax Error while loading YAML.
+  found character that cannot start any token
+
+The error appears to be in '/etc/ansible/install-elk.yml': line 31, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+          - "5601:5601"
+          - "9200:9200"
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+ERROR! Syntax Error while loading YAML.
+  found character that cannot start any token
+
+The error appears to be in '/etc/ansible/install-elk.yml': line 31, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+          - "5601:5601"
+          - "9200:9200"
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+ERROR! Syntax Error while loading YAML.
+  found character that cannot start any token
+
+The error appears to be in '/etc/ansible/install-elk.yml': line 31, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+          - "5601:5601"
+          - "9200:9200"
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+ERROR! Syntax Error while loading YAML.
+  found character that cannot start any token
+
+The error appears to be in '/etc/ansible/install-elk.yml': line 46, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+
+^ here
+There appears to be a tab character at the start of the line.
+
+YAML does not use tabs for formatting. Tabs should be replaced with spaces.
+
+For example:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+#    ^--- there is a tab there.
+
+Should be written as:
+    - name: update tooling
+      vars:
+        version: 1.2.3
+# ^--- all spaces here.
+
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] ******************************************************************************************
+TASK [Gathering Facts] *************************************************************************************************fatal: [10.1.0.4]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.1.0.4 port 22: Connection timed out", "unreachable": true}
+
+PLAY RECAP *************************************************************************************************************10.1.0.4                   : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# ansible all -m ping
+10.0.0.6 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+10.0.0.5 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+10.0.0.7 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.0.0.7 port 22: No route to host",
+    "unreachable": true
+}
+10.1.0.4 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.1.0.4 port 22: Connection timed out",
+    "unreachable": true
+}
+root@3d03e4e5c2e5:/etc/ansible# ansible all -m ping
+10.0.0.6 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+10.0.0.5 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+10.0.0.7 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.0.0.7 port 22: No route to host",
+    "unreachable": true
+}
+10.1.0.4 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.1.0.4 port 22: Connection timed out",
+    "unreachable": true
+}
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] ******************************************************************************************
+TASK [Gathering Facts] *************************************************************************************************fatal: [10.1.0.4]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.1.0.4 port 22: Connection timed out", "unreachable": true}
+
+PLAY RECAP *************************************************************************************************************10.1.0.4                   : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] ******************************************************************************************
+TASK [Gathering Facts] *************************************************************************************************fatal: [10.1.0.4]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.1.0.4 port 22: Connection timed out", "unreachable": true}
+
+PLAY RECAP *************************************************************************************************************10.1.0.4                   : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible#
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] ******************************************************************************************
+TASK [Gathering Facts] *************************************************************************************************fatal: [10.1.0.4]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.1.0.4 port 22: Connection timed out", "unreachable": true}
+
+PLAY RECAP *************************************************************************************************************10.1.0.4                   : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] ******************************************************************************************
+TASK [Gathering Facts] *************************************************************************************************fatal: [10.1.0.4]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.1.0.4 port 22: Connection timed out", "unreachable": true}
+
+PLAY RECAP *************************************************************************************************************10.1.0.4                   : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# nano hosts
+root@3d03e4e5c2e5:/etc/ansible# nano hosts
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] ******************************************************************************************
+TASK [Gathering Facts] *************************************************************************************************The authenticity of host '10.1.0.5 (10.1.0.5)' can't be established.
+ECDSA key fingerprint is SHA256:jt3yc2o5v+AhY5hmIE0cK5jacgznKjefFQmMxY1YxRY.
+Are you sure you want to continue connecting (yes/no)? yes
+ok: [10.1.0.5]
+
+TASK [docker.io] *******************************************************************************************************changed: [10.1.0.5]
+
+TASK [Install pip3] ****************************************************************************************************changed: [10.1.0.5]
+
+TASK [Install Docker python module] ************************************************************************************changed: [10.1.0.5]
+
+TASK [download and launch a docker web container] **********************************************************************changed: [10.1.0.5]
+
+TASK [Enable docker service] *******************************************************************************************ok: [10.1.0.5]
+
+TASK [set vm.max_map_count to 262144 in sysctl] ************************************************************************changed: [10.1.0.5] => (item={u'key': u'vm.max_map_count', u'value': u'262144'})
+
+PLAY RECAP *************************************************************************************************************10.1.0.5                   : ok=7    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# Connection to 138.91.165.37 closed by remote host.
+Connection to 138.91.165.37 closed.
+
+Hillj@Revan MINGW64 ~
+$ ssh azdmin@138.91.165.37
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1046-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Apr 23 00:19:25 UTC 2021
+
+  System load:  0.0               Processes:              113
+  Usage of /:   8.5% of 28.90GB   Users logged in:        0
+  Memory usage: 31%               IP address for eth0:    10.0.0.4
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+ * Pure upstream Kubernetes 1.21, smallest, simplest cluster ops!
+
+     https://microk8s.io/
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+2 packages can be updated.
+0 of these updates are security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Thu Apr 22 23:13:13 2021 from 108.28.152.235
+azdmin@Jump-Box-Provisioner:~$ sudo docker start trusting_bhabha
+trusting_bhabha
+azdmin@Jump-Box-Provisioner:~$ sudo docker attach trusting_bhabha
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] ******************************************************************************************
+TASK [Gathering Facts] *************************************************************************************************ok: [10.1.0.5]
+
+TASK [docker.io] *******************************************************************************************************ok: [10.1.0.5]
+
+TASK [Install pip3] ****************************************************************************************************ok: [10.1.0.5]
+
+TASK [Install Docker python module] ************************************************************************************ok: [10.1.0.5]
+
+TASK [download and launch a docker web container] **********************************************************************fatal: [10.1.0.5]: FAILED! => {"changed": false, "msg": "Error starting container 4ba8d1714b0a115a25585247e1e6360149cf9042580bed6fd44477b1c462704d: 500 Server Error for http+docker://localhost/v1.41/containers/4ba8d1714b0a115a25585247e1e6360149cf9042580bed6fd44477b1c462704d/start: Internal Server Error (\"driver failed programming external connectivity on endpoint elk (8f452580067c1228343ef4b9a32a95f31901eeb1aa45a5c6f969cc495e0f05e4): Bind for 0.0.0.0:9200 failed: port is already allocated\")"}
+
+PLAY RECAP *************************************************************************************************************10.1.0.5                   : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# ansible all -m ping
+10.0.0.6 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+10.0.0.5 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+10.1.0.5 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+10.0.0.7 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh: connect to host 10.0.0.7 port 22: No route to host",
+    "unreachable": true
+}
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] *************************************************************************************************************************************************************************
+TASK [Gathering Facts] ********************************************************************************************************************************************************************************ok: [10.1.0.5]
+
+TASK [docker.io] **************************************************************************************************************************************************************************************ok: [10.1.0.5]
+
+TASK [Install pip3] ***********************************************************************************************************************************************************************************ok: [10.1.0.5]
+
+TASK [Install Docker python module] *******************************************************************************************************************************************************************ok: [10.1.0.5]
+
+TASK [download and launch a docker web container] *****************************************************************************************************************************************************
+fatal: [10.1.0.5]: FAILED! => {"changed": false, "msg": "Error starting container 839804ecdea4593ecab3f3223a40a9f62bfadabd5072593e9b964f937586464e: 500 Server Error for http+docker://localhost/v1.41/containers/839804ecdea4593ecab3f3223a40a9f62bfadabd5072593e9b964f937586464e/start: Internal Server Error (\"driver failed programming external connectivity on endpoint elk (df29d50003351f6443c6af8f32f3ef4a47471641d0de048e80c431a3b8bdf5d9): Bind for 0.0.0.0:9200 failed: port is already allocated\")"}
+
+PLAY RECAP ********************************************************************************************************************************************************************************************
+10.1.0.5                   : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] **************************************************************************************************************************************************************************************
+TASK [Gathering Facts] *********************************************************************************************************************************************************************************************ok: [10.1.0.5]
+
+TASK [docker.io] ***************************************************************************************************************************************************************************************************ok: [10.1.0.5]
+
+TASK [Install pip3] ************************************************************************************************************************************************************************************************ok: [10.1.0.5]
+
+TASK [Install Docker python module] ********************************************************************************************************************************************************************************ok: [10.1.0.5]
+
+TASK [download and launch a docker web container] ******************************************************************************************************************************************************************fatal: [10.1.0.5]: FAILED! => {"changed": false, "msg": "Error starting container 839804ecdea4593ecab3f3223a40a9f62bfadabd5072593e9b964f937586464e: 500 Server Error for http+docker://localhost/v1.41/containers/839804ecdea4593ecab3f3223a40a9f62bfadabd5072593e9b964f937586464e/start: Internal Server Error (\"driver failed programming external connectivity on endpoint elk (c709a004a5ffa33918949ff7a879f8e6e7380d5dfa77363d9ec902e35e5e0a99): Bind for 0.0.0.0:9200 failed: port is already allocated\")"}
+
+PLAY RECAP *********************************************************************************************************************************************************************************************************10.1.0.5                   : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] *********************************************************************************************
+TASK [Gathering Facts] ****************************************************************************************************ok: [10.1.0.5]
+
+TASK [docker.io] **********************************************************************************************************ok: [10.1.0.5]
+
+TASK [Install pip3] *******************************************************************************************************ok: [10.1.0.5]
+
+TASK [Install Docker python module] ***************************************************************************************ok: [10.1.0.5]
+
+TASK [download and launch a docker web container] *************************************************************************fatal: [10.1.0.5]: FAILED! => {"changed": false, "msg": "Error starting container 7855e14282b3e1c599c65919e2ed589840cd2f0776daddc4e53e76439132904d: 500 Server Error for http+docker://localhost/v1.41/containers/7855e14282b3e1c599c65919e2ed589840cd2f0776daddc4e53e76439132904d/start: Internal Server Error (\"driver failed programming external connectivity on endpoint elk (d6fdf68dedd7b2f447c1106a5509ce7568ec26dede577c8b61660d41b004af12): Bind for 0.0.0.0:9200 failed: port is already allocated\")"}
+
+PLAY RECAP ****************************************************************************************************************10.1.0.5                   : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] *********************************************************************************************
+TASK [Gathering Facts] ****************************************************************************************************ok: [10.1.0.5]
+
+TASK [docker.io] **********************************************************************************************************ok: [10.1.0.5]
+
+TASK [Install pip3] *******************************************************************************************************ok: [10.1.0.5]
+
+TASK [Install Docker python module] ***************************************************************************************ok: [10.1.0.5]
+
+TASK [download and launch a docker web container] *************************************************************************fatal: [10.1.0.5]: FAILED! => {"changed": false, "msg": "Error starting container 7855e14282b3e1c599c65919e2ed589840cd2f0776daddc4e53e76439132904d: 500 Server Error for http+docker://localhost/v1.41/containers/7855e14282b3e1c599c65919e2ed589840cd2f0776daddc4e53e76439132904d/start: Internal Server Error (\"driver failed programming external connectivity on endpoint elk (ab9c0affc9066732f1c69161b00fac8d707104142b0fdde7256962a0d4158c4d): Bind for 0.0.0.0:9200 failed: port is already allocated\")"}
+
+PLAY RECAP ****************************************************************************************************************10.1.0.5                   : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ssh azdmin@10.1.0.5
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1046-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Apr 23 01:10:25 UTC 2021
+
+  System load:  0.02               Processes:              132
+  Usage of /:   24.6% of 28.90GB   Users logged in:        0
+  Memory usage: 39%                IP address for eth0:    10.1.0.5
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+ * Pure upstream Kubernetes 1.21, smallest, simplest cluster ops!
+
+     https://microk8s.io/
+
+0 packages can be updated.
+0 of these updates are security updates.
+
+New release '20.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Apr 23 01:07:49 2021 from 10.0.0.4
+azdmin@Elk-VM:~$ sudo docker start elk
+Error response from daemon: driver failed programming external connectivity on endpoint elk (4e9a6be087570d1d6047f54ce95b36a8aaf4e07695ba20dac91a34137a77414e): Bind for 0.0.0.0:9200 failed: port is already allocated
+Error: failed to start containers: elk
+azdmin@Elk-VM:~$ exit
+logout
+Connection to 10.1.0.5 closed.
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ssh azdmin@10.1.0.5
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1046-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Apr 23 01:12:42 UTC 2021
+
+  System load:  0.13               Processes:              133
+  Usage of /:   24.6% of 28.90GB   Users logged in:        0
+  Memory usage: 39%                IP address for eth0:    10.1.0.5
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+ * Pure upstream Kubernetes 1.21, smallest, simplest cluster ops!
+
+     https://microk8s.io/
+
+0 packages can be updated.
+0 of these updates are security updates.
+
+New release '20.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Apr 23 01:10:25 2021 from 10.0.0.4
+azdmin@Elk-VM:~$ sudo docker run -p 5601:5601 -p 9200:9200 -p 5044:5044 -it --name elk sebp/elk:761
+docker: Error response from daemon: Conflict. The container name "/elk" is already in use by container "7855e14282b3e1c599c65919e2ed589840cd2f0776daddc4e53e76439132904d". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+azdmin@Elk-VM:~$ sudo docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED             STATUS             PORTS                                                                              NAMES
+bf6a63e6f9d3   sebp/elk:761   "/usr/local/bin/star…"   About an hour ago   Up About an hour   0.0.0.0:5044->5044/tcp, 0.0.0.0:5601->5601/tcp, 0.0.0.0:9200->9200/tcp, 9300/tcp   sebp
+azdmin@Elk-VM:~$ sudo reboot
+Connection to 10.1.0.5 closed by remote host.
+Connection to 10.1.0.5 closed.
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] **********************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************
+ok: [10.1.0.5]
+
+TASK [docker.io] ***********************************************************************************************************************************
+ok: [10.1.0.5]
+
+TASK [Install pip3] ********************************************************************************************************************************
+ok: [10.1.0.5]
+
+TASK [Install Docker python module] ****************************************************************************************************************
+ok: [10.1.0.5]
+
+TASK [download and launch a docker web container] **************************************************************************************************
+fatal: [10.1.0.5]: FAILED! => {"changed": false, "msg": "Error starting container 7855e14282b3e1c599c65919e2ed589840cd2f0776daddc4e53e76439132904d: 500 Server Error for http+docker://localhost/v1.41/containers/7855e14282b3e1c599c65919e2ed589840cd2f0776daddc4e53e76439132904d/start: Internal Server Error (\"driver failed programming external connectivity on endpoint elk (b1bdaaf2c5b54e429d6e9d862728df78cfdd37b2a51a49c3507e008bbe57323a): Bind for 0.0.0.0:9200 failed: port is already allocated\")"}
+
+PLAY RECAP *****************************************************************************************************************************************
+10.1.0.5                   : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] **********************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************
+ok: [10.1.0.5]
+
+TASK [docker.io] ***********************************************************************************************************************************
+ok: [10.1.0.5]
+
+TASK [Install pip3] ********************************************************************************************************************************
+ok: [10.1.0.5]
+
+TASK [Install Docker python module] ****************************************************************************************************************
+ok: [10.1.0.5]
+
+TASK [download and launch a docker web container] **************************************************************************************************
+fatal: [10.1.0.5]: FAILED! => {"changed": false, "msg": "Error starting container 08682eb1820bbda0f2cd5320dff51d796679b7d78867a2ff80a1284275cddaf3: 500 Server Error for http+docker://localhost/v1.41/containers/08682eb1820bbda0f2cd5320dff51d796679b7d78867a2ff80a1284275cddaf3/start: Internal Server Error (\"driver failed programming external connectivity on endpoint elk (f9e3d3695ed236694ef2593c0ed89b9810e678209053e79b0b1276cbcf8be544): Bind for 0.0.0.0:9200 failed: port is already allocated\")"}
+
+PLAY RECAP *****************************************************************************************************************************************
+10.1.0.5                   : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# ssh azdmin@10.1.0.5
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1046-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Apr 23 01:18:07 UTC 2021
+
+  System load:  0.33               Processes:              141
+  Usage of /:   24.8% of 28.90GB   Users logged in:        0
+  Memory usage: 32%                IP address for eth0:    10.1.0.5
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+ * Pure upstream Kubernetes 1.21, smallest, simplest cluster ops!
+
+     https://microk8s.io/
+
+0 packages can be updated.
+0 of these updates are security updates.
+
+New release '20.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Apr 23 01:17:46 2021 from 10.0.0.4
+azdmin@Elk-VM:~$ sudo docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED             STATUS         PORTS                                                                              NAMES
+bf6a63e6f9d3   sebp/elk:761   "/usr/local/bin/star…"   About an hour ago   Up 3 minutes   0.0.0.0:5044->5044/tcp, 0.0.0.0:5601->5601/tcp, 0.0.0.0:9200->9200/tcp, 9300/tcp   sebp
+azdmin@Elk-VM:~$ exit
+logout
+Connection to 10.1.0.5 closed.
+root@3d03e4e5c2e5:/etc/ansible# nano install-elk.yml
+root@3d03e4e5c2e5:/etc/ansible# nano hosts
+root@3d03e4e5c2e5:/etc/ansible# ansible-playbook install-elk.yml
+
+PLAY [Config ELK with Docker] **********************************************************************************************************************
+
+TASK [Gathering Facts] *****************************************************************************************************************************
+ok: [10.1.0.5]
+
+TASK [docker.io] ***********************************************************************************************************************************
+ok: [10.1.0.5]
+
+TASK [Install pip3] ********************************************************************************************************************************
+ok: [10.1.0.5]
+
+TASK [Install Docker python module] ****************************************************************************************************************
+ok: [10.1.0.5]
+
+TASK [download and launch a docker web container] **************************************************************************************************
+fatal: [10.1.0.5]: FAILED! => {"changed": false, "msg": "Error starting container 08682eb1820bbda0f2cd5320dff51d796679b7d78867a2ff80a1284275cddaf3: 500 Server Error for http+docker://localhost/v1.41/containers/08682eb1820bbda0f2cd5320dff51d796679b7d78867a2ff80a1284275cddaf3/start: Internal Server Error (\"driver failed programming external connectivity on endpoint elk (b99a8d740d60017d47d31a0886d953a9ef32e8c5ee163b6b1d478265889d522a): Bind for 0.0.0.0:9200 failed: port is already allocated\")"}
+
+PLAY RECAP *****************************************************************************************************************************************
+10.1.0.5                   : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+
+root@3d03e4e5c2e5:/etc/ansible# ssh azdmin@10.1.0.5
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1046-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Apr 23 01:33:30 UTC 2021
+
+  System load:  0.0                Processes:              132
+  Usage of /:   24.9% of 28.90GB   Users logged in:        0
+  Memory usage: 32%                IP address for eth0:    10.1.0.5
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+ * Pure upstream Kubernetes 1.21, smallest, simplest cluster ops!
+
+     https://microk8s.io/
+
+0 packages can be updated.
+0 of these updates are security updates.
+
+New release '20.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Fri Apr 23 01:28:56 2021 from 10.0.0.4
+azdmin@Elk-VM:~$ sudo docker ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED             STATUS          PORTS                                                                              NAMES
+bf6a63e6f9d3   sebp/elk:761   "/usr/local/bin/star…"   About an hour ago   Up 18 minutes   0.0.0.0:5044->5044/tcp, 0.0.0.0:5601->5601/tcp, 0.0.0.0:9200->9200/tcp, 9300/tcp   sebp
+azdmin@Elk-VM:~$ exit
+logout
+Connection to 10.1.0.5 closed.
+root@3d03e4e5c2e5:/etc/ansible#
+
