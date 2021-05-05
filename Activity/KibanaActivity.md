@@ -17,22 +17,29 @@
 2. Answer the following questions:
 
    - In the last 7 days, how many unique visitors were located in India? 245
-![]Images/Kibana/7daysIndia.PNG
+   
+![](Images/Kibana/7daysIndia.PNG)
     
 - In the last 24 hours, of the visitors from China, how many were using Mac OSX? 9
-Images/Kibana/24hoursChina.PNG
+
+![](Images/Kibana/24hoursChina.PNG)
 
  - In the last 2 days, what percentage of visitors received 404 errors? How about 503 errors? 404: 6.25% 503: 2.5%
-Images/Kibana/2day404and503.PNG
+
+![](Images/Kibana/2day404and503.PNG)
 
  - In the last 7 days, what country produced the majority of the traffic on the website? China: 326
-Images/Kibana/7daysmajoritytraffic.png
+
+![](Images/Kibana/7daysmajoritytraffic.png)
 
  - Of the traffic that's coming from that country, what time of day had the highest amount of activity? 12-1PM
-Images/Kibana/ChinaTimeofDay.PNG
+
+![](Images/Kibana/ChinaTimeofDay.PNG)
 
  - List all the types of downloaded files that have been identified for the last 7 days, along with a short description of each file type (use Google if you aren't sure about a particular file type).
-Images/Kibana/TypesOfFiles.PNG
+
+![](Images/Kibana/TypesOfFiles.PNG)
+
 gz: .gz files are compressed files created using the gzip compression utility.
 
 css: .css files can help define font, size, color, spacing, border and location of HTML information on a webpage. 
@@ -48,14 +55,16 @@ rpm: .rpm file formats are a Red Hat Software Package file. RPM stands for Red H
      - Locate the time frame in the last 7 days with the most amount of bytes (activity). 
      - In your own words, is there anything that seems potentially strange about this activity?
 Theres a tie, 2 times had the most data. Although one of them had only 1 user. That much traffic seems like strangely large amount for one person.
-Images/Kibana/MostBytes.png
+
+![](Images/Kibana/MostBytes.png)
 
 4. Filter the data by this event.
      - What is the timestamp for this event? April 29, 2021 @ 17:55:00.00 -> April 29, 2021 @ 18:00:00.00   
      - What kind of file was downloaded? .gz
      - From what country did this activity originate? China
      - What HTTP response codes were encountered by this visitor? 200
-Images/Kibana/SingleUserCapture.PNG
+
+![](Images/Kibana/SingleUserCapture.PNG)
 
 5. Switch to the Kibana Discover page to see more details about this activity.
      - What is the source IP address of this activity? 1.145.31.121
@@ -63,7 +72,8 @@ Images/Kibana/SingleUserCapture.PNG
      - What OS was the source machine running? Windows 8
      - What is the full URL that was accessed?  https://artifacts.elastic.co/downloads/kibana/kibana-6.3.2-linux-x86_64.tar.gz
      - From what website did the visitor's traffic originate? http://www.elastic-elastic-elastic.com/success/aleksandr-serebro
-Images/Kibana/SingleUserCaptureDiscover.PNG
+
+![](Images/Kibana/SingleUserCaptureDiscover.PNG)
 
 6. Finish your investigation with a short overview of your insights. 
 
