@@ -8,7 +8,6 @@ The files in this repository were used to configure the network depicted below.
 
 ![Project_Topology_Diagram](https://user-images.githubusercontent.com/77707411/117197805-42b8ea00-adb6-11eb-954f-ebf414729404.png)
 
-![project day 2](https://user-images.githubusercontent.com/77707411/117595344-8e4cfa00-b10e-11eb-9a1a-73fd854c31e6.PNG)
 This document contains the following details:
 - Description of the Topologu
 - Access Policies
