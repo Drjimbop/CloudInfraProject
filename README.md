@@ -125,69 +125,12 @@ filebeats
 
 Installing Filebeat Playbook
 [Filebeat_YML_file.md](https://github.com/Drjimbop/CloudInfraProject/files/6429920/Filebeat_YML_file.md)
----
-- name: Installing and Launch Filebeat
-  hosts: webservers
-  become: yes
-  tasks:
-    # Use command module
-  - name: Download filebeat .deb file
-    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
-    # Use command module
-  - name: Install filebeat .deb
-    command: dpkg -i filebeat-7.4.0-amd64.deb
-    # Use copy module
-  - name: Drop in filebeat.yml
-    copy:
-      src: ./filebeat.yml
-      dest: /etc/filebeat/filebeat.yml
-    # Use command module
-  - name: enable and configure system module
-    command: filebeat modules enable system
-    # Use command module
-  - name: Setup filebeat
-    command: filebeat setup
-    # Use command module
-  - name: Start filebeat service
-    command: service filebeat start
-    # Use systemd module
-  - name: Enable 'filebeat' on system boot
-    systemd:
-      name: filebeat
-      enabled: yes
+
+![filebeat](https://user-images.githubusercontent.com/77707411/118588376-419b9b80-b76c-11eb-87bd-41092cb8f4cc.PNG)
+
       
 Installing Metricbeat Playbook
 [Metricbeat_YML_file.md](https://github.com/Drjimbop/CloudInfraProject/files/6429926/Metricbeat_YML_file.md)
----
- - name: Install metric beat
-   hosts: webservers    
-   become: yes
-   tasks:
 
-    # Use commmand module
-  - name: Download metricbeat .deb file
-    command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.7.1-amd64.deb
-    # Use command module
-  - name: Install metricbeat .deb
-    command: sudo dpkg -i metricbeat-7.7.1-amd64.deb
-    # Use copy module
-  - name: Drop in metricbeat.yml
-    copy:
-      src: /etc/ansible/files/metricbeat.yml
-      dest: /etc/metricbeat/metricbeat.yml
-    # Use command module
-  - name: enable and configure system module
-    command: metricbeat modules enable docker
-    # Use command module
-  - name: Setup metricbeat
-    command: metricbeat setup
-    # Use command module
-  - name: Start metricbeat service
-    command: service metricbeat start
-    # Use systemd module
-  - name: Enable 'metricbeat' on system boot
-    systemd:
-      name: metricbeat
-      enabled: yes
-[Metricbeat_YML_file.md](https://github.com/Drjimbop/CloudInfraProject/files/6429926/Metricbeat_YML_file.md)
+![metricbeat](https://user-images.githubusercontent.com/77707411/118588431-60019700-b76c-11eb-9f6a-b7b4ddf03b5a.PNG)
 
