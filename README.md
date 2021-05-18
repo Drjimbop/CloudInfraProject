@@ -64,7 +64,6 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 The playbook implements the following tasks:
 - installs docker.io, pip3, the docker module, and enables the docker service
 
----
 - name: Config Web VM with Docker
   hosts: webservers
   become: true
@@ -126,7 +125,6 @@ The playbook implements the following tasks:
           - 5601:5601
           - 9200:9200
           - 5044:5044
-- 
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
