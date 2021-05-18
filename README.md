@@ -65,33 +65,20 @@ The playbook implements the following tasks:
 - installs docker.io, pip3, the docker module, and enables the docker service
 
 [Install_Docker_file.md](https://github.com/Drjimbop/CloudInfraProject/files/6498245/Install_Docker_file.md)
+
+![configure docker](https://user-images.githubusercontent.com/77707411/118587805-35630e80-b76b-11eb-8f58-d5f0ae8132ae.PNG)
         
 - increases the virtual memory (for the VM we will use to run the ELK server)
 
-    - name: Increase virtual memory
-      command: sysctl -w vm.max_map_count=262144
+![virtual memory](https://user-images.githubusercontent.com/77707411/118588162-deaa0480-b76b-11eb-9506-be41257ba3cc.PNG)
       
 - uses sysctl module
 
-    - name: Use more memory
-      sysctl:
-        name: vm.max_map_count
-        value: "262144"
-        state: present
-        reload: yes
+![sysctl module](https://user-images.githubusercontent.com/77707411/118588214-ecf82080-b76b-11eb-8e72-dfa3d19f9d5c.PNG)
 
 - downloads and launches the docker container for Elk server
 
-    - name: download and launch a docker elk container
-      docker_container:
-        name: elk
-        image: sebp/elk:761
-        state: started
-        restart_policy: always
-        published_ports:
-          - 5601:5601
-          - 9200:9200
-          - 5044:5044
+ ![download docker](https://user-images.githubusercontent.com/77707411/118588249-fed9c380-b76b-11eb-87b1-a9afc084fa5c.PNG)
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
