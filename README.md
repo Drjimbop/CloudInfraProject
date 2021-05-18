@@ -62,38 +62,51 @@ A summary of the access policies in place can be found in the table below.
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because services running can be limited,system installation and update can be streamlined, and processes become more replicable. 
 
 The playbook implements the following tasks:
-- installs docker.io, pip3, and the docker module
+- installs docker.io, pip3, the docker module, and enables the docker service
 
-   # Use apt module
-    - name: Install docker.io
-      apt:
-        update_cache: yes
-        name: docker.io
-        state: present
+---
+- name: Config Web VM with Docker
+  hosts: webservers
+  become: true
+  tasks:
 
-  # Use apt module
-    - name: Install pip3
-      apt:
-        force_apt_get: yes
-        name: python3-pip
-        state: present
+  - name: Install docker.io
+    apt:
+      force_apt_get: yes
+      name: docker.io
+      state: present
 
-  # Use pip module
-    - name: Install Docker python module
-      pip:
-        name: docker
-        state: present
+  - name: Install pip3
+    apt:
+      name: python3-pip
+      state: present
+
+  - name: Install docker python module
+    pip:
+      name: docker
+      state: present
+
+  - name: download and launch docker web container
+    docker_container:
+      name: dvwa
+      image: cyberxsecurity/dvwa
+      state: started
+      restart_policy: always
+      published_ports: 80:80
+
+  - name: Enable docker service
+    systemd:
+      name: docker
+      enabled: yes
 
         
 - increases the virtual memory (for the VM we will use to run the ELK server)
 
-  # Use command module
     - name: Increase virtual memory
       command: sysctl -w vm.max_map_count=262144
       
 - uses sysctl module
 
-  # Use sysctl module
     - name: Use more memory
       sysctl:
         name: vm.max_map_count
@@ -103,7 +116,6 @@ The playbook implements the following tasks:
 
 - downloads and launches the docker container for Elk server
 
-# Use docker_container module
     - name: download and launch a docker elk container
       docker_container:
         name: elk
@@ -156,11 +168,74 @@ SSH into the control node and follow the steps below:
 
 - Which URL do you navigate to in order to check that the ELK server is running? http://[your.ELK-VM.External.IP]:5601/app/kibana.
 
+
 filebeats
 
 Installing Filebeat Playbook
 [Filebeat_YML_file.md](https://github.com/Drjimbop/CloudInfraProject/files/6429920/Filebeat_YML_file.md)
-
+---
+- name: Installing and Launch Filebeat
+  hosts: webservers
+  become: yes
+  tasks:
+    # Use command module
+  - name: Download filebeat .deb file
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+    # Use command module
+  - name: Install filebeat .deb
+    command: dpkg -i filebeat-7.4.0-amd64.deb
+    # Use copy module
+  - name: Drop in filebeat.yml
+    copy:
+      src: ./filebeat.yml
+      dest: /etc/filebeat/filebeat.yml
+    # Use command module
+  - name: enable and configure system module
+    command: filebeat modules enable system
+    # Use command module
+  - name: Setup filebeat
+    command: filebeat setup
+    # Use command module
+  - name: Start filebeat service
+    command: service filebeat start
+    # Use systemd module
+  - name: Enable 'filebeat' on system boot
+    systemd:
+      name: filebeat
+      enabled: yes
+      
 Installing Metricbeat Playbook
+[Metricbeat_YML_file.md](https://github.com/Drjimbop/CloudInfraProject/files/6429926/Metricbeat_YML_file.md)
+---
+ - name: Install metric beat
+   hosts: webservers    
+   become: yes
+   tasks:
+
+    # Use commmand module
+  - name: Download metricbeat .deb file
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.7.1-amd64.deb
+    # Use command module
+  - name: Install metricbeat .deb
+    command: sudo dpkg -i metricbeat-7.7.1-amd64.deb
+    # Use copy module
+  - name: Drop in metricbeat.yml
+    copy:
+      src: /etc/ansible/files/metricbeat.yml
+      dest: /etc/metricbeat/metricbeat.yml
+    # Use command module
+  - name: enable and configure system module
+    command: metricbeat modules enable docker
+    # Use command module
+  - name: Setup metricbeat
+    command: metricbeat setup
+    # Use command module
+  - name: Start metricbeat service
+    command: service metricbeat start
+    # Use systemd module
+  - name: Enable 'metricbeat' on system boot
+    systemd:
+      name: metricbeat
+      enabled: yes
 [Metricbeat_YML_file.md](https://github.com/Drjimbop/CloudInfraProject/files/6429926/Metricbeat_YML_file.md)
 
