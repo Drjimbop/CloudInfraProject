@@ -64,26 +64,7 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 The playbook implements the following tasks:
 - installs docker.io, pip3, the docker module, and enables the docker service
 
-  # Use apt module
-    - name: Install docker.io
-      apt:
-        update_cache: yes
-        name: docker.io
-        state: present
-
-  # Use apt module
-    - name: Install pip3
-      apt:
-        force_apt_get: yes
-        name: python3-pip
-        state: present
-
-  # Use pip module
-    - name: Install Docker python module
-      pip:
-        name: docker
-        state: present
-
+[Install_Docker_file.md](https://github.com/Drjimbop/CloudInfraProject/files/6498245/Install_Docker_file.md)
         
 - increases the virtual memory (for the VM we will use to run the ELK server)
 
